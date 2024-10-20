@@ -1,6 +1,5 @@
 import sqlite3
 
-# Setup database
 conn = sqlite3.connect(':memory:')
 cursor = conn.cursor()
 cursor.execute('''CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, password TEXT)''')
@@ -8,9 +7,9 @@ cursor.execute("INSERT INTO users (username, password) VALUES ('admin', 'admin12
 
 # Insecure Code Example
 # This code is vulnerable to SQL Injection attacks because it directly uses user input in the query.
-# To exploit the vulnerability:
-# Enter the following input when prompted: ' OR '1'='1
-user_input = input("Enter your username (Try ' OR '1'='1): ")
+
+# Try to enter the following input when prompted: ' OR '1'='1
+user_input = input("Enter your username: ")
 query = f"SELECT * FROM users WHERE username = '{user_input}'"
 print(f"Executing query: {query}")
 cursor.execute(query)

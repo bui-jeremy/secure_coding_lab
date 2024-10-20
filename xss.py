@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 # Insecure Code Example
 # This code is vulnerable to Cross-Site Scripting (XSS) because it directly displays user input.
-# To exploit the vulnerability:
-# Visit: http://127.0.0.1:5000/?input=<script>alert('XSS')</script>
+
+# Try to visit: http://127.0.0.1:5000/?input=<script>alert('XSS')</script>
 @app.route('/')
 def home():
     user_input = request.args.get('input', '')

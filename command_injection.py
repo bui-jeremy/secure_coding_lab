@@ -2,9 +2,9 @@ import os
 
 # Insecure Code Example
 # This code is vulnerable to command injection because it directly includes user input in the system command.
-# To exploit the vulnerability:
-# Enter the following input when prompted: ; ls
-command = input("Enter a file name to check existence (Try entering: ; ls): ")
+
+# Try to enter the following input when prompted: ; ls
+command = input("Enter a file name to check existence: ")
 os.system(f"echo Checking file: {command}")
 
 # Secure Code Example (commented out)
